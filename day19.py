@@ -105,5 +105,4 @@ def main():
     print(sum([validate_part_2(message, parsed_rules) for message in messages]))
 
 if __name__=='__main__':
-    import numpy as np
     main()
