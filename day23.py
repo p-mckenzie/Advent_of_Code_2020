@@ -8,22 +8,19 @@ def format_order(ordr, start):
         current = ordr[current]
     return output
     
-def reformatted(txt, n, vocal=False):
+def reformatted(starting_order, n):
     '''implementing a linked list with a dictionary. 
     Each key is a cup number, and the corresponding value is the next cup. 
     Moving cups is just a matter of relinking them'''
     
     order = {}
-    start = txt[0]
-    for i in range(-1,len(txt)-1):
-        order[txt[i]] = txt[i+1]
+    start = starting_order[0]
+    for i in range(-1,len(starting_order)-1):
+        order[starting_order[i]] = starting_order[i+1]
 
-    max_cup = max(txt)
+    max_cup = max(starting_order)
 
     for move in range(n):
-        if vocal and move%(n//50+1)==0:
-            print("Move #{}, {}% done".format(move, round(100*(move/n), 2)))
-
         # take out 3 cups
         removed_1 = order[start]
         removed_2 = order[removed_1]

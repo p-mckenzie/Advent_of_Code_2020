@@ -1,13 +1,10 @@
 def part_1(voltages):
 	ranges = {1:0, 2:0, 3:0}
 
-	current_voltage = voltages[0]
-
 	# go element to element, count the voltage jump in ranges
 	for i in range(1,len(voltages)):
-		jump = voltages[i]-current_voltage
+		jump = voltages[i]-voltages[i-1]
 		ranges[jump] += 1
-		current_voltage += jump
 		
 	return ranges[1]*ranges[3]
 	
